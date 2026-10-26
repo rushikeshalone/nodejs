@@ -1,0 +1,21 @@
+{
+  "name": "projectmanagement",
+  "version": "1.0.0",
+  "description": "projectManagement",
+  "license": "ISC",
+  "author": "Rushikesh Alone",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.9",
+    "express": "^5.3.0",
+    "prettier": "^3.9.10"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
