@@ -1,6 +1,9 @@
 import "./config/env.js";
 import app from "./app.js";
 import connectDB from "./db/index.js";
+import dns from "node:dns";
+
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 const port = Number(process.env.PORT) || 3000;
 
