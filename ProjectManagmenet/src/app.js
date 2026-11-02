@@ -2,6 +2,8 @@ import express, { urlencoded } from "express";
 import cors from "cors";
 import "./config/env.js";
 
+
+
 const app = express();
 
 // Basic Configuration
@@ -24,12 +26,11 @@ app.use(
   }),
 );
 
-app.get("/", (req, res) => {
-  res.send("Hello World! Rushi");
-});
+// Import the routes
+import healthCheckRouter from "./routes/healthCheck.route.js";
+import TestRouter from "./routes/test.route.js"
 
-app.get("/in", (req, res) => {
-  res.send("Nre IN TajMahal");
-});
+app.use("/api/v1/healthCheck", healthCheckRouter);
+app.use("/api/test",TestRouter)
 
 export default app;
