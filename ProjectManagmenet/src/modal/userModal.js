@@ -1,4 +1,6 @@
 import mongoose,{Schema} from "mongoose"
+import bcrypt from 'bcrypt'
+
 const userSchema = new Schema(
     {
         avatar:{
@@ -62,4 +64,12 @@ const userSchema = new Schema(
         timestamps:true,
     },
 );
+
+userSchema.pre("save",async function (next){
+   if(!this.isDirectModified("Password")) return next()
+    
+    this.Password =  await bcrypt.hash(this.Password,10)
+    next()
+});
+
 export const User  = mongoose.model("User",userSchema)
